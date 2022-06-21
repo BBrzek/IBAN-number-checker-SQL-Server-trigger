@@ -16,4 +16,20 @@ begin
 	declare @mod2nr3 varchar(max)
 	declare @mod3 varchar(max)
 	declare @mod3nr4 varchar(max)
+
+	declare @mod_iban varchar(max)
+	declare @nr_test varchar(max)
+
+	if (LEN(@acc_number) <> 26)
+	begin
+		print 'Lenght of value inserted in column acc_number is not correct'
+		rollback
+	end
+
+	if (ISNUMERIC(@acc_number) = 0)
+	begin
+		print 'Inserted value is not a number'
+		rollback
+	end
+
 end
