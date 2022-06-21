@@ -51,4 +51,14 @@ begin
 
 	set @mod_iban = @mod3nr4 % 97
 
+
+	if (@mod_iban = 1)
+	begin
+		print 'IBAN is correct!'
+	end
+	else
+	begin
+		print 'IBAN is NOT correct!'
+		rollback
+	end
 end
