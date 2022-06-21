@@ -32,4 +32,23 @@ begin
 		rollback
 	end
 
+	set @nr1 = LEFT(@acc_number,2)
+	set @nr_test = CONCAT(SUBSTRING(@acc_number,3,24),'2521',@nr1)
+
+	set @nr2 = SUBSTRING(@nr_test,1,9)
+	set @nr3 = SUBSTRING(@nr_test,10,7)
+	set @nr4 = SUBSTRING(@nr_test,17,7)
+	set @nr5 = SUBSTRING(@nr_test,24,7)
+
+	set @mod1 = @nr2 % 97
+	set @mod1nr2 = CONCAT(@mod1,@nr3)
+
+	set @mod2 = @mod1nr2 % 97
+	set @mod2nr3 = CONCAT(@mod2,@nr4)
+
+	set @mod3 = @mod2nr3 % 97
+	set @mod3nr4 = CONCAT(@mod3,@nr5)
+
+	set @mod_iban = @mod3nr4 % 97
+
 end
